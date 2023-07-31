@@ -7,7 +7,7 @@ This repo contains a templated `Dockerfile` for image variants designed to run d
 
 ## Build and Test Image
 ```bash
-CI=1 REPOSITORY=756143471679.dkr.ecr.cn-north-1.amazonaws.com.cn TERRAFORM_VERSION=1.3.4 ./scripts/build.sh
+CI=1 ECR_REGISTRY=756143471679.dkr.ecr.cn-north-1.amazonaws.com.cn ECR_REPOSITORY=terraform TERRAFORM_VERSION=1.3.4 ./scripts/build.sh
 ```
 
 ## Publish Image to ECR
@@ -16,7 +16,7 @@ CI=1 REPOSITORY=756143471679.dkr.ecr.cn-north-1.amazonaws.com.cn TERRAFORM_VERSI
 
 export AWS_PROFILE=756143471679_UserFull
 
-CI=1 REPOSITORY=756143471679.dkr.ecr.cn-north-1.amazonaws.com.cn TERRAFORM_VERSION=1.3.4 ./scripts/publish.sh
+CI=1 ECR_REGISTRY=756143471679.dkr.ecr.cn-north-1.amazonaws.com.cn ECR_REPOSITORY=terraform  TERRAFORM_VERSION=1.3.4 AWS_REGION=cn-north-1 ./scripts/publish.sh
 ```
 
 ### Reference

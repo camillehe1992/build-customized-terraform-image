@@ -19,9 +19,9 @@ if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
         usage
     else
         aws ecr get-login-password \
-            --region cn-north-1 |
-            docker login --username AWS --password-stdin $REPOSITORY
+            --region ${AWS_REGION} |
+            docker login --username AWS --password-stdin ${ECR_REGISTRY}
 
-        docker push "$REPOSITORY/terraform:${TERRAFORM_VERSION}"
+        docker push "${ECR_REGISTRY}/${ECR_REPOSITORY}:${TERRAFORM_VERSION}"
     fi
 fi

@@ -8,7 +8,7 @@ ARG ARCHIVE_PROVIDER_VERSION=2.3.0
 ARG NULL_PROVIDER_VERSION=3.2.1
 ARG LOCAL_PROVIDER_VERSION=2.4.0
 
-ENV TF_PLUGIN_CACHE_DIR="/app/.terraform.d/plugin-cache"
+ENV TF_PLUGIN_CACHE_DIR=${HOME}.terraform.d/plugin-cache
 
 RUN apk add --no-cache --virtual .sig-check gnupg
 RUN wget -O /usr/bin/tfsec https://github.com/aquasecurity/tfsec/releases/download/v${TFSEC_VERSION}/tfsec-linux-amd64 && chmod +x /usr/bin/tfsec
@@ -61,3 +61,5 @@ RUN apk add --no-cache \
 RUN pip install awscli
 
 ENTRYPOINT ["/bin/terraform"]
+
+# ENTRYPOINT ["/bin/sh"]

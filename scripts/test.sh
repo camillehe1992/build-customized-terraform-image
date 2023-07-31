@@ -19,9 +19,9 @@ if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
         usage
     else
         docker \
-            run --rm "${REPOSITORY}/terraform:${TERRAFORM_VERSION}" --version
+            run --rm "${ECR_REGISTRY}/${ECR_REPOSITORY}:${TERRAFORM_VERSION}" --version
 
         docker \
-            run --rm --entrypoint aws "${REPOSITORY}/terraform:${TERRAFORM_VERSION}" --version
+            run --rm --entrypoint aws "${ECR_REGISTRY}/${ECR_REPOSITORY}:${TERRAFORM_VERSION}" --version
     fi
 fi
