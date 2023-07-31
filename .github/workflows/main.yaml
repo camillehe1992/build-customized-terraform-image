@@ -34,11 +34,11 @@ jobs:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: ${{ secrets.REPO_NAME }}
         IMAGE_TAG: latest
-      run: ./scripts/build
+      run: ./scripts/build.sh
     - name: Publish image to ECR
       id: publish-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: ${{ secrets.REPO_NAME }}
         IMAGE_TAG: latest
-      run:  ./scripts/publish
+      run:  ./scripts/publish.sh
